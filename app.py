@@ -83,7 +83,7 @@ if selection == "Home":
 elif selection == "About":
     st.header("About")
     st.write("This Below Video refers food and excerise to prevent heart disease from cardiologist.")
-    video_file = open('videos/The_best_food_and_exercises_for_heart_health.mp4', 'rb')
+    video_file = open('https://github.com/divya711yadhav/Heartdiseasepredictiction_Streamlit_webappb/edit/main/The_best_food_and_exercises_for_heart_health.mp4', 'rb')
     video_bytes = video_file.read()
     # Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
     # Video_bytesone = Video_Fileone.read()
