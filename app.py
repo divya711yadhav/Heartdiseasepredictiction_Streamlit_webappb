@@ -90,6 +90,7 @@ elif selection == "About":
 
     # Display the video in the Streamlit app
     st.video(video_bytes)
+    st.video(video_bytesone)
         # Add your About content here
 
     # Login Section
