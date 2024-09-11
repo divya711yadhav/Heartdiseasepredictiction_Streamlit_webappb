@@ -1,6 +1,12 @@
-streamlit==1.24.0
-scikit-learn==1.2.2
-xgboost==1.6.1
-numpy==1.21.2  # (Ensure this matches your Python version)
-pandas==1.3.3
-pip==24.2  # Ensure pip is up-to-date
+pandas==2.2.2
+scikit-learn==1.3.2
+pickle-mixin==1.0.2
+streamlit==1.35.0
+# streamlit
+# scikit-learn
+# numpy
+# pandas
+# matplotlib
+# plotly
+# statsmodels
+# seaborn
