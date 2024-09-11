@@ -67,7 +67,7 @@ if selection == "Home":
         """,
         unsafe_allow_html=True
     )
-    st.write("Welcome to the Heart Disease Prediction App!")
+    st.write("### Welcome to the Heart Disease Prediction App!")
     st.write("Heart disease prediction using machine learning involves building models that can accurately predict the likelihood of heart disease in individuals based on various health indicators and risk factors. These models utilize historical patient data to learn patterns and relationships between features (such as age, cholesterol levels, and blood pressure) and the presence or absence of heart disease.")
     st.markdown( "### Introduction to Heart Disease Prediction")
     st.write("Heart disease is a leading cause of death worldwide. Early detection and prevention are crucial to reducing mortality rates. Machine learning models can assist in predicting heart disease by analyzing patterns in patient data and identifying high-risk individuals.")
@@ -83,14 +83,14 @@ if selection == "Home":
 elif selection == "About":
     st.header("About")
     st.write("This Below Video refers food and excerise to prevent heart disease from cardiologist.")
-    video_file = open('The best food and exercises for heart health.mp4', 'rb')
+    video_file = open('videos/The_best_food_and_exercises_for_heart_health.mp4', 'rb')
     video_bytes = video_file.read()
-    Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
-    Video_bytesone = Video_Fileone.read()
+    # Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
+    # Video_bytesone = Video_Fileone.read()
 
     # Display the video in the Streamlit app
     st.video(video_bytes)
-    st.video(video_bytesone)
+    # st.video(video_bytesone)
         # Add your About content here
 
     # Login Section
