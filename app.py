@@ -83,13 +83,13 @@ if selection == "Home":
 elif selection == "About":
     st.header("About")
     st.write("This Below Video refers food and excerise to prevent heart disease from cardiologist.")
-    video_file = open('The_best_food_and_exercises_for_heart_health.mp4', 'rb')
-    video_bytes = video_file.read()
+    #video_file = open('The_best_food_and_exercises_for_heart_health.mp4', 'rb')
+    #video_bytes = video_file.read()
     # Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
     # Video_bytesone = Video_Fileone.read()
 
     # Display the video in the Streamlit app
-    st.video(video_bytes)
+    st.video("https://www.youtube.com/watch?v=NAaMN_I3mSU")
     # st.video(video_bytesone)
         # Add your About content here
 
