@@ -123,10 +123,13 @@ elif selection == "Heart Disease Prediction":
                     'Non-anginal',
                     'Asymptomatic'
         ])
-        trestbps = st.number_input('Resting Blood Pressure|150 t0 180 - Normal ,<180 - abnormal', min_value=0)
-        chol = st.number_input('Cholesterol| >350 - abnormal', min_value=0)
+        trestbps = st.number_input('Resting Blood Pressure', min_value=0)
+        st.caption('Enter your resting blood pressure. Normal range is between 150 and 180. Values above 180 may indicate high blood pressure.')
+        chol = st.number_input('Cholesterol Level', min_value=0)
+        st.caption('Enter your cholestrol level less than 200 mg/dl is normal')
     with c2:
-        fbs = st.selectbox('Fasting Blood Sugar |Above 120 mg/dl - Normal|Below 120 mg/dl-abnormal ', ['Below 120 mg/dl', 'Above 120 mg/dl'])
+        fbs = st.selectbox('Fasting Blood Sugar', ['Below 120 mg/dl', 'Above 120 mg/dl'])
+        st.caption('Enter your Diabetes or Sugar. Normal range is between 150 and 180. Values above 180 may indicate high blood pressure.')
         oldpeak = st.number_input('Depression Induced by Exercise >1.5 - normal', min_value=0.0)
         restecg = st.selectbox('Resting Electrocardiographic Results|Normal', ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'])
         Name = st.text_input('Enter your Name')
