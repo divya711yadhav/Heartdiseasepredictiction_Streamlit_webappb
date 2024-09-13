@@ -124,21 +124,19 @@ elif selection == "Heart Disease Prediction":
                     'Asymptomatic'
         ])
         trestbps = st.number_input('Resting Blood Pressure', min_value=0)
-        st.caption('Enter your resting blood pressure. Normal range is between 150 and 180. Values above 180 may indicate high blood pressure.')
-        chol = st.number_input('Cholesterol Level', min_value=0)
-        st.caption('Enter your cholestrol level less than 200 mg/dl is normal')
+        chol = st.number_input('Cholesterol Level|Less than 200 mg/dl is normal', min_value=0)
+        
     with c2:
         fbs = st.selectbox('Fasting Blood Sugar', ['Below 120 mg/dl', 'Above 120 mg/dl'])
-        st.caption('Enter your Diabetes or Sugar. Normal range is between 150 and 180. Values above 180 may indicate high blood pressure.')
         oldpeak = st.number_input('Depression Induced by Exercise >1.5 - normal', min_value=0.0)
-        restecg = st.selectbox('Resting Electrocardiographic Results|Normal', ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'])
+        restecg = st.selectbox('Resting Electrocardiographic Results', ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'])
         Name = st.text_input('Enter your Name')
         input_email = st.text_input('Enter your email address')
     with c3:
         thalach = st.number_input('Maximum Heart Rate Achieved| 120 to 208 - normal', min_value=0)
-        exang = st.selectbox('Exercise Induced Angina', ['No', 'Yes'])
-        slope = st.selectbox('Slope of the Peak Exercise ST Segment', ['Upsloping', 'Flat', 'Downsloping'])
-        ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy |3 , 0 normal', [0, 1, 2, 3])
+        exang = st.selectbox('Exercise Induced ChestPain', ['No', 'Yes'])
+        slope = st.selectbox('Heart Rate Response to Exercise', ['Upsloping', 'Flat', 'Downsloping'])
+        ca = st.selectbox('Major Blood Vessels with Issues |Count of vessels, [0, 1, 2, 3])
         thal = st.selectbox('Thalassemia', ['Normal', 'Fixed Defect', 'Reversable Defect'])
 
             # Map string values to numerical values
