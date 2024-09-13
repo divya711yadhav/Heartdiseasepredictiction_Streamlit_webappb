@@ -136,7 +136,7 @@ elif selection == "Heart Disease Prediction":
         thalach = st.number_input('Maximum Heart Rate Achieved| 120 to 208 - normal', min_value=0)
         exang = st.selectbox('Exercise Induced ChestPain', ['No', 'Yes'])
         slope = st.selectbox('Heart Rate Response to Exercise', ['Upsloping', 'Flat', 'Downsloping'])
-        ca = st.selectbox('Major Blood Vessels with Issues |Count of vessels, [0, 1, 2, 3])
+        ca = st.selectbox('Major Blood Vessels with Issues |Count of vessels', [0, 1, 2, 3])
         thal = st.selectbox('Thalassemia', ['Normal', 'Fixed Defect', 'Reversable Defect'])
 
             # Map string values to numerical values
