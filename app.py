@@ -67,7 +67,7 @@ if selection == "Home":
         """,
         unsafe_allow_html=True
     )
-    st.write("### Welcome to the Heart Disease Prediction App!")
+    st.write("Welcome to the Heart Disease Prediction App!")
     st.write("Heart disease prediction using machine learning involves building models that can accurately predict the likelihood of heart disease in individuals based on various health indicators and risk factors. These models utilize historical patient data to learn patterns and relationships between features (such as age, cholesterol levels, and blood pressure) and the presence or absence of heart disease.")
     st.markdown( "### Introduction to Heart Disease Prediction")
     st.write("Heart disease is a leading cause of death worldwide. Early detection and prevention are crucial to reducing mortality rates. Machine learning models can assist in predicting heart disease by analyzing patterns in patient data and identifying high-risk individuals.")
@@ -82,15 +82,15 @@ if selection == "Home":
     # About Section
 elif selection == "About":
     st.header("About")
-    st.write("This Below Video refers food and excerise to prevent heart disease.")
-    # video_file = open('The_best_food_and_exercises_for_heart_health.mp4', 'rb')
-    # video_bytes = video_file.read()
-    # Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
-    # Video_bytesone = Video_Fileone.read()
+    st.write("This Below Video refers food and excerise to prevent heart disease from cardiologist.")
+    video_file = open('The best food and exercises for heart health.mp4', 'rb')
+    video_bytes = video_file.read()
+    Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
+    Video_bytesone = Video_Fileone.read()
 
     # Display the video in the Streamlit app
     st.video("https://www.youtube.com/watch?v=NAaMN_I3mSU")
-    # st.video(video_bytesone)
+    #st.video(Video_bytesone)
         # Add your About content here
 
     # Login Section
@@ -111,33 +111,318 @@ elif selection == "Heart Disease Prediction":
     ## st.header("Heart Disease")
    
    ## if st.button("Click here to Predict"):
-        ##st.write("Enter the following details to predict heart disease:") 
-    c1,c2,c3 = st.columns(3)
+        st.write("Please note that the medical information you provide is confidential. Based on the information you provide, our model will generate a prediction. Rest assured that your information is handled with the utmost care and privacy.") 
+    #c1,c2 = st.columns([3,1])
 
-    with c1:
-        age = st.number_input('Age', min_value=0)
-        Gender = st.selectbox('Sex', ['Male', 'Female'])
-        chestPain = st.selectbox('Chest Pain Type', [
-                    'Typical angina',
-                    'Atypical angina',
-                    'Non-anginal',
-                    'Asymptomatic'
-        ])
-        trestbps = st.number_input('Resting Blood Pressure', min_value=0)
-        chol = st.number_input('Cholesterol Level|Less than 200 mg/dl is normal', min_value=0)
+    
+        Name = st.text_input('Enter your Name *')
+        input_email = st.text_input('Enter your email address *')
+        age = st.number_input('Age *', min_value=0)
+        Gender = st.selectbox('Sex *', ['Male', 'Female'])
+        st.markdown("""
+            <style>
+                .input-container {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    margin-bottom: 15px;
+                }
+                .input-field {
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+                .info-icon {
+                    font-size: 18px;
+                    color: #007bff;
+                    cursor: pointer;
+                    border-bottom: 1px dotted #007bff;
+                    margin-left: 10px;
+                }
+                .tooltip {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #f9f9f9;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px;
+                    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                    z-index: 1;
+                    white-space: nowrap;
+                }
+                .info-icon:hover .tooltip {
+                    display: block;
+                }
+            </style>
+            <div style="position: relative; display: inline-block;">
+                <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                    <span class="tooltip">Chest Pain During Activity: Pain with physical exertion, possibly heart-related. Occasional Chest Discomfort: Intermittent pain, unrelated to activity. Non-Heart Related Pain: Pain from non-cardiac causes (e.g., digestion, muscles). No Chest Pain or Symptoms: No chest pain.</span>
+                </span>
+            </div>
+        """, unsafe_allow_html=True)
+
+
         
-    with c2:
-        fbs = st.selectbox('Fasting Blood Sugar', ['Below 120 mg/dl', 'Above 120 mg/dl'])
-        oldpeak = st.number_input('Depression Induced by Exercise >1.5 - normal', min_value=0.0)
-        restecg = st.selectbox('Resting Electrocardiographic Results', ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'])
-        Name = st.text_input('Enter your Name')
-        input_email = st.text_input('Enter your email address')
-    with c3:
-        thalach = st.number_input('Maximum Heart Rate Achieved| 120 to 208 - normal', min_value=0)
-        exang = st.selectbox('Exercise Induced ChestPain', ['No', 'Yes'])
-        slope = st.selectbox('Heart Rate Response to Exercise', ['Upsloping', 'Flat', 'Downsloping'])
-        ca = st.selectbox('Major Blood Vessels with Issues |Count of vessels', [0, 1, 2, 3])
+        chestPain = st.selectbox('Chest Pain Type *', [
+                    'Chest Pain During Activity',
+                    'Occasional Chest Discomfort',
+                    'Non-Heart Related Chest Pain',
+                    'No Chest Pain or Symptoms'
+            ])
+    
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">Resting Blood Pressure:150 to 180: Considered normal.<180: Considered abnormal.</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+ 
+        trestbps = st.number_input('Resting Blood Pressure *', min_value=0)
+        chol = st.number_input('Cholesterol Level *', min_value=0)
+        #Depression = st.selectbox('Depression state',['Yes','No'])
+    
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">Fasting Blood Sugar| Above 120 mg/dl: Abnormal|Below 120 mg/dl: Normal</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        fbs = st.selectbox('Fasting Blood Sugar *', ['Below 120 mg/dl', 'Above 120 mg/dl'])
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">The amount of stress or strain experienced during physical exercise, typically measured to assess cardiovascular health or response to exercise.>1.5: Normal</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        oldpeak = st.number_input('Exercise-Induced Stress', min_value=0.0)
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">Resting Electrocardiographic Results:|Normal: No significant abnormalities detected.|ST-T Wave Abnormality: Irregularities in the ST-T segment of the ECG, which may indicate potential heart issues.|Left Ventricular Hypertrophy: Thickening of the heart's left ventricle, often due to high blood pressure or other heart conditions.</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        restecg = st.selectbox('Resting Electrocardiographic (ECG Result) *', ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'])
+       
+   # with c2:
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip"> The highest number of heartbeats per minute reached during exercise, used to assess cardiovascular fitness and exercise tolerance.</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        thalach = st.number_input('Maximum Heart Rate Achieved', min_value=0)
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">:Yes: Indicates that the individual experiences chest pain or discomfort during physical activity, which may suggest a heart-related issue.|No: Indicates that the individual does not experience chest pain or discomfort during physical activity, suggesting no immediate signs of heart-related problems during exercise.</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        exang = st.selectbox('Exercise Induced chestpain', ['No', 'Yes'])
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">Heart rate remains stable: Constant|Heart rate increases steadily: Rising|Heart rate decreases during exercising: Falling</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        slope = st.selectbox('Heart Rate Response During Exercise', ['Heart rate remains stable', 'Heart rate increases steadily', 'Heart rate decreases during exerciseing'])
+        st.markdown("""
+        <style>
+            .info-icon {
+                font-size: 18px;
+                color: #007bff;
+                cursor: pointer;
+                border-bottom: 1px dotted #007bff;
+            }
+            .tooltip {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            .info-icon:hover .tooltip {
+                display: block;
+            }
+        </style>
+        <div style="position: relative; display: inline-block;">
+            <span class="info-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/info.png" alt="info"/>
+                <span class="tooltip">Major Blood Vessels with Issues: Number of blood vessels showing problems or abnormalities.</span>
+            </span>
+        </div>
+    """, unsafe_allow_html=True)
+        ca = st.selectbox('Major Blood Vessels with Issues|count', [0, 1, 2, 3])
+        #st.info('This number represents how many major blood vessels were clearly visible in the scan 0 indicates no significant issues, while higher numbers may suggest potential problems with blood flow')
         thal = st.selectbox('Thalassemia', ['Normal', 'Fixed Defect', 'Reversable Defect'])
+        
 
             # Map string values to numerical values
             
@@ -146,10 +431,10 @@ elif selection == "Heart Disease Prediction":
                   'Female':0
         }
         cp_map = {
-                    'Typical angina': 0,
-                    'Atypical angina': 1,
-                    'Non-anginal': 2,
-                    'Asymptomatic': 3
+                    'Chest Pain During Activity': 0,
+                    'Occasional Chest Discomfort': 1,
+                    'Non-Heart Related Chest Pain': 2,
+                    'No Chest Pain or Symptoms': 3
             }
 
         fbs_map = {
@@ -169,9 +454,9 @@ elif selection == "Heart Disease Prediction":
                 }
 
         slope_map = {
-                    'Upsloping': 0,
-                    'Flat': 1,
-                    'Downsloping': 2
+                    'Heart rate remains stable': 0,
+                    'Heart rate increases steadily': 1,
+                    'Heart rate decreases during exerciseing': 2
              }
 
         thal_map = {
@@ -181,15 +466,17 @@ elif selection == "Heart Disease Prediction":
                 }
 
                 # Create DataFrame for prediction
+        #input_data = pd.DataFrame([[age,Gender,chestPain,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]],columns = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       #'exang', 'oldpeak', 'slope', 'ca', 'thal'])
         input_data = pd.DataFrame([[age,Gender,chestPain,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]],columns = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
        'exang', 'oldpeak', 'slope', 'ca', 'thal'])
         
         input_data['sex'].replace(['Male','Female'],[1,0],inplace = True)
-        input_data['cp'].replace(['Typical angina','Atypical angina','Non-anginal','Asymptomatic'],[1,2,3,4],inplace = True)
+        input_data['cp'].replace(['Chest Pain During Activity','Occasional Chest Discomfort','Non-Heart Related Chest Pain','No Chest Pain or Symptoms'],[1,2,3,4],inplace = True)
         input_data['fbs'].replace(['Below 120 mg/dl', 'Above 120 mg/dl'],[0,1],inplace=True)
         input_data['restecg'].replace(['Normal','ST-T wave abnormality','Left ventricular hypertrophy'],[0,1,2],inplace=True)
         input_data['exang'].replace(['No', 'Yes'],[0,1],inplace=True)
-        input_data['slope'].replace(['Upsloping','Flat','Downsloping'],[0,1,2],inplace=True)
+        input_data['slope'].replace(['Heart rate remains stable','Heart rate increases steadily','Heart rate decreases during exerciseing'],[0,1,2],inplace=True)
         input_data['thal'].replace(['Normal','Fixed Defect','Reversable Defect'],[0,1,2],inplace=True)
         
         #})
@@ -217,14 +504,24 @@ elif selection == "Heart Disease Prediction":
         prediction = model.predict(input_data)
 
                 # Show prediction result
-    with c2:
+        c1,c2,c3 = st.columns([3,3,3])
+    
+        with c2:
         
-        if st.button('Predict'):
-            if prediction == 1:
-                st.write("The model predicts that the person is at risk of heart disease.")
+            if st.button('Predict'):
+                if Name and input_email and age and Gender and chestPain and trestbps and chol and fbs and restecg:
+                    st.success("Prediction can be made here")
                 
-            else:
-                st.write("The model predicts that the person is not at risk of heart disease.")
+                
+                    if prediction == 1:
+                        st.write("The model predicts that the person is at risk of heart disease.")
+                        
+                    else:
+                        st.write("The model predicts that the person is not at risk of heart disease.")
+                else:
+                    # If mandatory fields are missing, display a message
+                    st.error("Please enter the name and email ID manually, all the mandatory fields are Name,Email,sex,age,chestpain,Resting Blood Pressure,Fasting Blood Sugar,Cholesterol Level,Resting Electrocardiographic (ECG Result)")
+                    
                 
         def send_email(receiver_email,prediction):
             sender_email = "divyadrsm@gmail.com"
@@ -237,7 +534,7 @@ elif selection == "Heart Disease Prediction":
             msg['Subject'] = "Heart Disease Prediction Result"
 
             # Body of the email
-            body = f"Dear {Name},\n\nYour heart disease prediction result is: {prediction}\n\nStay healthy This result is generated by a machine learning model with 90% accuracy. Please don't be alarmed by a negative result; it is an initial assessment based on the data you provided and should be followed up with professional consultation for further evaluation."
+            body = f"Dear {Name},\n\nYour heart disease prediction result is: {prediction}\n\nHeart-Healthy Tips for a Better Life\n \n1.Eat Smart: Opt for fruits, vegetables, whole grains, and lean proteins to keep your heart in top shape.\n \n2.Stay Active: Aim for at least 30 minutes of exercise most days of the week to boost your heart health.\n\n3.Stay Hydrated: Drink plenty of water and limit sugary beverages to support overall health.\n\n4.Limit Unhealthy Fats: Cut back on saturated fats and avoid trans fats to keep your cholesterol levels in check.\n \n5.Manage Stress: Practice relaxation techniques like yoga or meditation to keep your stress levels low.\n \nNote:This result is generated by a machine learning model with 90% accuracy. Please don't be alarmed by a negative result; it is an initial assessment based on the data you provided and should be followed up with professional consultation for further evaluation.\n"
             msg.attach(MIMEText(body, 'plain'))
 
             # Sending the email
@@ -251,21 +548,22 @@ elif selection == "Heart Disease Prediction":
                 return "Email sent successfully!"
             except Exception as e:
                 return str(e)
-                    
-        if st.button('Predict and Send Result'):
-        
-        # Map prediction to a message
-            prediction_message = "No Heart Disease Detected  Stay Healthy, Stay Prosperous, and Take Care of Your Well-being!" if prediction == 0 else "Heart Disease Detected Stay Calm and Schedule a Consultation with Your Cardiologist for Further Guidance"
-            #prediction_message = "The prediction result for heart disease is: {prediction_result}"
+        with c2:
+            
+            if st.button('Predict and Send Result'):
+            
+            # Map prediction to a message
+                prediction_message = "No Heart Disease Detected  Stay Healthy, Stay Prosperous, and Take Care of Your Well-being!" if prediction == 0 else "Heart Disease Detected Stay Calm and Schedule a Consultation with Your Cardiologist for Further Guidance"
+                #prediction_message = "The prediction result for heart disease is: {prediction_result}"
 
 
-        # Send prediction result via email
-            if input_email.endswith('@gmail.com'):  # Optional email validation
-                email_status = send_email(input_email, prediction_message)
-                st.success(f"Prediction: {prediction_message}")
-                st.info(email_status)
-            else:
-                st.error("Please enter a valid Gmail address.")
+            # Send prediction result via email
+                if input_email.endswith('@gmail.com'):  # Optional email validation
+                    email_status = send_email(input_email, prediction_message)
+                    st.success(f"Prediction: {prediction_message}")
+                    st.info(email_status)
+                else:
+                    st.error("Please enter a valid Gmail address.")
 
 elif selection == "Connect":
     st.header("Connect with linkedin")
