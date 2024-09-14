@@ -82,7 +82,7 @@ if selection == "Home":
     # About Section
 elif selection == "About":
     st.header("About")
-    st.write("This Below Video refers food and excerise to prevent heart disease from cardiologist.")
+    st.write("This Below Video refers food and excerise to prevent heart disease.")
     # video_file = open('The best food and exercises for heart health.mp4', 'rb')
     # video_bytes = video_file.read()
     # Video_Fileone = open('E:\ML Project\Heart Diease Prediction\8 Ways to Reduce Your Coronary Artery Disease Risk.mp4','rb')
